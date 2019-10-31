@@ -1,1 +1,1 @@
-# Spannungsteiler
+# Spannungsteiler.
