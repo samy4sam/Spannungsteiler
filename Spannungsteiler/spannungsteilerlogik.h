@@ -2,17 +2,16 @@
 #define SPANNUNGSTEILERLOGIK_H
 
 #include <QObject>
-#include <QQuickItem>
 
-class SpannungsteilerLogik : public QQuickItem
+class SpannungsteilerLogik : public QObject
 {
-    Q_OBJECT
-public:
-    SpannungsteilerLogik();
+  Q_OBJECT
+ public:
+  SpannungsteilerLogik();
 
-signals:
+ signals:
 
-public slots:
+ public slots:
 };
 
-#endif // SPANNUNGSTEILERLOGIK_H
+#endif  // SPANNUNGSTEILERLOGIK_H
