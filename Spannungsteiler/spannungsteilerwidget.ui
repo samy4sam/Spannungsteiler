@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>642</width>
-    <height>580</height>
+    <width>493</width>
+    <height>646</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="Title">
      <property name="font">
       <font>
        <family>Zapf Dingbats</family>
@@ -43,23 +43,40 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="SpaltenLayout">
      <item>
-      <layout class="QGridLayout" name="gridLayout">
+      <layout class="QGridLayout" name="GridLayout">
        <item row="4" column="0">
-        <layout class="QVBoxLayout" name="verticalLayout_8">
+        <layout class="QVBoxLayout" name="StromEReiheLayout">
          <item>
-          <widget class="QLabel" name="label_6">
+          <widget class="QLabel" name="Strom">
+           <property name="text">
+            <string>Strom [A]</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="StromBox"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="EReihe">
            <property name="text">
             <string>E-Reihe</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox"/>
+          <widget class="QComboBox" name="EReihe_Box"/>
          </item>
          <item>
-          <spacer name="verticalSpacer_4">
+          <spacer name="Spacer">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
@@ -74,31 +91,64 @@
         </layout>
        </item>
        <item row="5" column="0">
-        <layout class="QVBoxLayout" name="verticalLayout_9">
+        <layout class="QVBoxLayout" name="ButtonBLayout">
          <item>
-          <widget class="QPushButton" name="BerechnenButton">
+          <widget class="QPushButton" name="CalcButton">
            <property name="text">
             <string>Berechnen</string>
            </property>
           </widget>
          </item>
+        </layout>
+       </item>
+       <item row="5" column="2">
+        <layout class="QVBoxLayout" name="ButtonRLayout">
          <item>
-          <spacer name="verticalSpacer_5">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
+          <widget class="QPushButton" name="ResetButton">
+           <property name="text">
+            <string>Reset</string>
            </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
+          </widget>
          </item>
         </layout>
        </item>
+       <item row="3" column="0">
+        <layout class="QVBoxLayout" name="AusgangsspannungLayout">
+         <item>
+          <widget class="QLabel" name="U2">
+           <property name="text">
+            <string>Ausgangsspannung [V]</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="U2Box"/>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="2">
+        <layout class="QVBoxLayout" name="Widerstand1Layout">
+         <item>
+          <widget class="QLabel" name="Widerstand1">
+           <property name="text">
+            <string>Widerstand 1 [Ω]</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="Widerstand1Box"/>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="2">
+        <widget class="Line" name="line_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="Eingabe">
          <property name="font">
           <font>
            <family>Zapf Dingbats</family>
@@ -113,35 +163,8 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="0">
-        <layout class="QVBoxLayout" name="verticalLayout_7">
-         <item>
-          <widget class="QLabel" name="label_5">
-           <property name="text">
-            <string>Ausgangsspannung [V]</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSpinBox" name="spinBox_2"/>
-         </item>
-         <item>
-          <spacer name="verticalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLabel" name="label_2">
+       <item row="0" column="2">
+        <widget class="QLabel" name="Ausgabe">
          <property name="font">
           <font>
            <family>Zapf Dingbats</family>
@@ -156,137 +179,92 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="0">
-        <layout class="QVBoxLayout" name="verticalLayout_11">
-         <item>
-          <widget class="QLabel" name="label_9">
-           <property name="text">
-            <string>Strom [A]</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSpinBox" name="spinBox_5"/>
-         </item>
-         <item>
-          <spacer name="verticalSpacer_3">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </item>
-       <item row="1" column="0">
+       <item row="2" column="0">
         <layout class="QVBoxLayout" name="EingangsspannungLayout">
          <item>
-          <widget class="QLabel" name="label_4">
+          <widget class="QLabel" name="U1">
            <property name="text">
             <string>Eingangsspannung [V]</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="spinBox"/>
-         </item>
-         <item>
-          <spacer name="verticalSpacer">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
+          <widget class="QSpinBox" name="U1Box"/>
          </item>
         </layout>
        </item>
-       <item row="1" column="1">
-        <layout class="QVBoxLayout" name="verticalLayout_6">
-         <item>
-          <widget class="QLabel" name="label_7">
+       <item row="1" column="0">
+        <widget class="Line" name="line_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2">
+        <layout class="QVBoxLayout" name="BildLayout">
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="Picture">
            <property name="text">
-            <string>Widerstand 1 [Ω]</string>
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="Pictures.qrc">:/Spannungsteiler</pixmap>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QSpinBox" name="spinBox_3"/>
-         </item>
-         <item>
-          <spacer name="verticalSpacer_6">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
         </layout>
        </item>
-       <item row="2" column="1">
-        <layout class="QVBoxLayout" name="verticalLayout_10">
+       <item row="3" column="2">
+        <layout class="QVBoxLayout" name="Widerstand2Layout">
          <item>
-          <widget class="QLabel" name="label_8">
+          <widget class="QLabel" name="Widerstand2">
            <property name="text">
             <string>Widerstand 2 [Ω]</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="spinBox_4"/>
-         </item>
-         <item>
-          <spacer name="verticalSpacer_7">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
+          <widget class="QSpinBox" name="Widerstand2Box"/>
          </item>
         </layout>
        </item>
+       <item row="0" column="1">
+        <widget class="Line" name="line_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="Line" name="line_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="Line" name="line_6">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="Line" name="line_7">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
        <item row="5" column="1">
-        <layout class="QVBoxLayout" name="verticalLayout_12">
-         <item>
-          <widget class="QPushButton" name="pushButton">
-           <property name="text">
-            <string>Reset</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="verticalSpacer_8">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
+        <widget class="Line" name="line_8">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -294,6 +272,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="Pictures.qrc"/>
+ </resources>
  <connections/>
 </ui>
