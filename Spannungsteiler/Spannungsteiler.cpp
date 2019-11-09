@@ -1,4 +1,5 @@
 #include <cmath>
+#include <cassert>
 #include"Spannungsteiler.h"
 
 using namespace std;
@@ -19,8 +20,8 @@ void Spannungsteiler::setCur(float cur){
   this->current = cur;
 }
 
-void Spannungsteiler::setERow(enum Spannungsteiler::erow er){
-  this->erowValue = er;
+void Spannungsteiler::setSerie(enum Spannungsteiler::serieList serie){
+  this->eSerie = serie;
 }
 
 float Spannungsteiler::getRes1() const
@@ -43,35 +44,42 @@ void Spannungsteiler::reset()
 }
 
 void Spannungsteiler::doCalc(){
+  assert(vol1>vol2);
+  float r1tmp = vol1/current;
+  float r2tmp = (r1tmp*vol2)/(vol1-vol2);
+  this->res1 = selectResistor(r1tmp);
+  this->res2 = selectResistor(r2tmp);
 }
 
-float Spannungsteiler::selectRes(float r) const{
-  float coeff = pow(10,int(log10(r)));
-  for(int i=0;i<this->erowValue;++i){
-    if(coeff*calcERowVal(i)>r){
-      if(coeff*calcERowVal(i)-r < r-coeff*calcERowVal(i-1))
+float Spannungsteiler::selectResistor(float r) const{
+  float coeff = pow(10.0,int(log10(r)));
+  for(int i=0;i<eSerie;++i){
+
+    if(coeff*calcSerieValue(i)>r){
+      if(coeff*calcSerieValue(i)-r < r-coeff*calcSerieValue(i-1))
       {
-        return coeff*calcERowVal(i);
+        return coeff*calcSerieValue(i);
       }
       else
       {
-        return coeff*calcERowVal(i-1);
+        return coeff*calcSerieValue(i-1);
       }
     }
-    if((i==erowValue-1) && (coeff*calcERowVal(i)<r)){
-      if(coeff*10*calcERowVal(i-erowValue+1)-r>r-coeff*calcERowVal(i))
+    if((i==eSerie-1) && (coeff*calcSerieValue(i)<r)){
+      if(coeff*10.0*calcSerieValue(i-eSerie+1)-r>r-coeff*calcSerieValue(i))
       {
-        return coeff*calcERowVal(i);
+        return coeff*calcSerieValue(i);
       }
       else
       {
-        return coeff*calcERowVal(i-erowValue+1);
+        return coeff*calcSerieValue(i-eSerie+1);
       }
     }
   }
+  return 0;
 }
 
-float Spannungsteiler::calcERowVal(int i) const
+float Spannungsteiler::calcSerieValue(int i) const
 {
-  return pow(pow(10,i),1.0/this->erowValue);
+  return pow(pow(10.0,i),1.0/eSerie);
 }

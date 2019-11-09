@@ -6,25 +6,27 @@
 class Spannungsteiler
 {
   public:
-    enum erow {E3,E6,E12,E24,E48,E96,E192};
+    enum serieList {E3=3,E6=6,E12=12,E24=24,E48=28,E96=96,E192=192};
     Spannungsteiler();
+    Spannungsteiler(Spannungsteiler::serieList);
     void setVol1(float vol);
     void setVol2(float vol);
     void setCur(float cur);
-    void setERow(enum Spannungsteiler::erow);
+    void setSerie(Spannungsteiler::serieList);
     float getRes1() const;
     float getRes2() const;
     void reset();
     void doCalc();
 
   private:
-    int erowValue;
+    int eSerie;
     float vol1;
     float vol2;
     float current;
     float res1;
     float res2;
-    float selectRes(float r) const;
-    float calcERowVal(int i) const;
+    float selectResistor(float r) const;
+    float calcSerieValue(int i) const;
+
 };
 #endif
