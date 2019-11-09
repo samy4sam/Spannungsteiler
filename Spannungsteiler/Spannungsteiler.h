@@ -24,5 +24,7 @@ class Spannungsteiler
     float current;
     float res1;
     float res2;
+    float selectRes(float r) const;
+    float calcERowVal(int i) const;
 };
 #endif
