@@ -81,5 +81,17 @@ float Spannungsteiler::selectResistor(float r) const{
 
 float Spannungsteiler::calcSerieValue(int i) const
 {
-  return pow(pow(10.0,i),1.0/eSerie);
+  float value =  pow(pow(10.0,i),1.0/eSerie);
+  if(serieList::E3<=eSerie && eSerie<=serieList::E24){
+    if(2.2<value && value<4.7)
+      value += 0.1;
+    if(round(value) == 8)
+      value -= 0.1;
+  }
+  if(eSerie<serieList::E48)
+    value = round(value*10)/10.0;
+  else
+    value = round(value*100)/100.0;
+
+  return value;
 }
