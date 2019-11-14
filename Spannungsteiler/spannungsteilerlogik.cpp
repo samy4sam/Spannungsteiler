@@ -1,6 +1,5 @@
 #include "spannungsteilerlogik.h"
 
-SpannungsteilerLogik::SpannungsteilerLogik()
+SpannungsteilerLogik::SpannungsteilerLogik(QObject* parent) : QObject(parent)
 {
-
 }

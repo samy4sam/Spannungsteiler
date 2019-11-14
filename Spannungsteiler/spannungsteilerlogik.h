@@ -7,7 +7,7 @@ class SpannungsteilerLogik : public QObject
 {
   Q_OBJECT
  public:
-  SpannungsteilerLogik();
+  SpannungsteilerLogik(QObject* parent = nullptr);
 
  signals:
 
