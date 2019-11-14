@@ -1,3 +1,5 @@
+#include <cmath>
+#include <cassert>
 #include "spannungsteilerlogik.h"
 
 SpannungsteilerLogik::SpannungsteilerLogik(QObject* parent) : 
