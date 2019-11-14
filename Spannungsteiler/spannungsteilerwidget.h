@@ -1,21 +1,26 @@
 #ifndef SPANNUNGSTEILERWIDGET_H
 #define SPANNUNGSTEILERWIDGET_H
 
+#include <spannungsteilerlogik.h>
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class SpannungsteilerWidget; }
+namespace Ui
+{
+class SpannungsteilerWidget;
+}
 QT_END_NAMESPACE
 
 class SpannungsteilerWidget : public QWidget
 {
-    Q_OBJECT
+  Q_OBJECT
 
-public:
-    SpannungsteilerWidget(QWidget *parent = nullptr);
-    ~SpannungsteilerWidget();
+ public:
+  SpannungsteilerWidget(QWidget* parent = nullptr);
+  ~SpannungsteilerWidget();
 
-private:
-    Ui::SpannungsteilerWidget *ui;
+ private:
+  Ui::SpannungsteilerWidget* ui;
+  SpannungsteilerLogik spannungsteiler;
 };
-#endif // SPANNUNGSTEILERWIDGET_H
+#endif  // SPANNUNGSTEILERWIDGET_H
