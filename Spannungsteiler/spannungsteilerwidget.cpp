@@ -15,7 +15,7 @@ SpannungsteilerWidget::SpannungsteilerWidget(QWidget* parent)
   connect(ui->StromBox, &QSpinBox::valueChanged, &spannungsteiler,
           &SpannungsteilerLogik::setCur);
   connect(ui->EReihe_Box, &QComboBox::currentTextChanged, &spannungsteiler,
-          &SpannungsteilerLogik::setERow);
+          &SpannungsteilerLogik::setSerie);
 
   connect(ui->CalcButton, &QPushButton::clicked, &spannungsteiler,
           &SpannungsteilerLogik::doCalc);
