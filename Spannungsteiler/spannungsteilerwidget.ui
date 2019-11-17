@@ -63,7 +63,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="StromBox"/>
+          <widget class="QDoubleSpinBox" name="StromBox"/>
          </item>
          <item>
           <widget class="QLabel" name="EReihe">
@@ -122,7 +122,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="U2Box"/>
+          <widget class="QDoubleSpinBox" name="U2Box"/>
          </item>
         </layout>
        </item>
@@ -136,7 +136,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="Widerstand1Box"/>
+          <widget class="QDoubleSpinBox" name="Widerstand1Box"/>
          </item>
         </layout>
        </item>
@@ -189,7 +189,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="U1Box"/>
+          <widget class="QDoubleSpinBox" name="U1Box"/>
          </item>
         </layout>
        </item>
@@ -227,7 +227,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="Widerstand2Box"/>
+          <widget class="QDoubleSpinBox" name="Widerstand2Box"/>
          </item>
         </layout>
        </item>
