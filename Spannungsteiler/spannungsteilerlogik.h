@@ -6,7 +6,8 @@
 class SpannungsteilerLogik : public QObject
 {
   Q_OBJECT
-public:
+
+ private:
   enum serieList
   {
     E3 = 3,
@@ -17,29 +18,30 @@ public:
     E96 = 96,
     E192 = 192
   };
-  SpannungsteilerLogik(QObject *parent = nullptr);
-  void setVol1(float vol);
-  void setVol2(float vol);
-  void setCur(float cur);
-  void setSerie(SpannungsteilerLogik::serieList);
-  float getRes1() const;
-  float getRes2() const;
+  serieList eSerie;
+  double vol1;
+  double vol2;
+  double current;
+  double res1;
+  double res2;
+  double selectResistor(double r) const;
+  double calcSerieValue(int i) const;
+
+ signals:
+  void changedRes1(double resValue1);
+  void changeRes2(double resValue2);
+  void setNull(double nullValue);
+
+ public:
+  SpannungsteilerLogik(QObject* parent = nullptr);
+  void setVol1(double vol);
+  void setVol2(double vol);
+  void setCur(double cur);
+  void setSerie(QString serie);
+  double getRes1() const;
+  double getRes2() const;
   void reset();
   void doCalc();
-
-private:
-  int eSerie;
-  float vol1;
-  float vol2;
-  float current;
-  float res1;
-  float res2;
-  float selectResistor(float r) const;
-  float calcSerieValue(int i) const;
-
-signals:
-  void changedRes1(float value);
-  void changedRes2(float value);
 };
 
-#endif // SPANNUNGSTEILERLOGIK_H
+#endif  // SPANNUNGSTEILERLOGIK_H
