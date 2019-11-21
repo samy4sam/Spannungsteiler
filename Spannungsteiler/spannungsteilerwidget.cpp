@@ -70,12 +70,19 @@ SpannungsteilerWidget::SpannungsteilerWidget(QWidget* parent)
   connect(&spannungsteiler, &SpannungsteilerLogik::setNull, ui->Widerstand2Box,
           qOverload<double>(&QDoubleSpinBox::setValue));
 }
+//
+//*****************************************************************************
+// Private Slots
 
 void SpannungsteilerWidget::onEReiheChanged()
 {
   spannungsteiler.setSerie(static_cast<SpannungsteilerLogik::serieList>(
       ui->EReihe_Box->currentData().value<int>()));
 }
+
+//
+//*****************************************************************************
+// Destructor
 
 SpannungsteilerWidget::~SpannungsteilerWidget()
 {

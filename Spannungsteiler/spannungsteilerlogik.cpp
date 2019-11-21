@@ -29,7 +29,7 @@ void SpannungsteilerLogik::setCur(double cur)
 void SpannungsteilerLogik::setSerie(serieList serie)
 {
   eSerie = serie;
-  qDebug() << eSerie;
+  qDebug() << "E-Serie = " << eSerie;
 }
 
 double SpannungsteilerLogik::getRes1() const
