@@ -22,5 +22,8 @@ class SpannungsteilerWidget : public QWidget
  private:
   Ui::SpannungsteilerWidget* ui;
   SpannungsteilerLogik spannungsteiler;
+
+ private slots:
+  void onEReiheChanged();
 };
 #endif  // SPANNUNGSTEILERWIDGET_H

@@ -26,43 +26,10 @@ void SpannungsteilerLogik::setCur(double cur)
   qDebug() << "Strom  = " << cur;
 }
 
-void SpannungsteilerLogik::setSerie(QString serie)
+void SpannungsteilerLogik::setSerie(serieList serie)
 {
-  if (serie == "E3")
-  {
-    eSerie = E3;
-    qDebug() << "eSerie = " << eSerie;
-  }
-  else if (serie == "E6")
-  {
-    eSerie = E6;
-    qDebug() << "eSerie = " << eSerie;
-  }
-  else if (serie == "E12")
-  {
-    eSerie = E12;
-    qDebug() << "eSerie = " << eSerie;
-  }
-  else if (serie == "E24")
-  {
-    eSerie = E24;
-    qDebug() << "eSerie = " << eSerie;
-  }
-  else if (serie == "E48")
-  {
-    eSerie = E48;
-    qDebug() << "eSerie = " << eSerie;
-  }
-  else if (serie == "E96")
-  {
-    eSerie = E96;
-    qDebug() << "eSerie = " << eSerie;
-  }
-  else if (serie == "E192")
-  {
-    eSerie = E192;
-    qDebug() << "eSerie = " << eSerie;
-  }
+  eSerie = serie;
+  qDebug() << eSerie;
 }
 
 double SpannungsteilerLogik::getRes1() const

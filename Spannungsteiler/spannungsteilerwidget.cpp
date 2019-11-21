@@ -21,16 +21,16 @@ SpannungsteilerWidget::SpannungsteilerWidget(QWidget* parent)
   connect(ui->StromBox, qOverload<double>(&QDoubleSpinBox::valueChanged),
           &spannungsteiler, &SpannungsteilerLogik::setCur);
 
-  connect(ui->EReihe_Box, &QComboBox::currentTextChanged, &spannungsteiler,
-          &SpannungsteilerLogik::setSerie);
+  connect(ui->EReihe_Box, &QComboBox::currentTextChanged, this,
+          &SpannungsteilerWidget::onEReiheChanged);
 
-  ui->EReihe_Box->addItem("E3");
-  ui->EReihe_Box->addItem("E6");
-  ui->EReihe_Box->addItem("E12");
-  ui->EReihe_Box->addItem("E24");
-  ui->EReihe_Box->addItem("E48");
-  ui->EReihe_Box->addItem("E96");
-  ui->EReihe_Box->addItem("E192");
+  ui->EReihe_Box->addItem("E3", static_cast<int>(SpannungsteilerLogik::E3));
+  ui->EReihe_Box->addItem("E6", static_cast<int>(SpannungsteilerLogik::E6));
+  ui->EReihe_Box->addItem("E12", static_cast<int>(SpannungsteilerLogik::E12));
+  ui->EReihe_Box->addItem("E24", static_cast<int>(SpannungsteilerLogik::E24));
+  ui->EReihe_Box->addItem("E48", static_cast<int>(SpannungsteilerLogik::E48));
+  ui->EReihe_Box->addItem("E96", static_cast<int>(SpannungsteilerLogik::E96));
+  ui->EReihe_Box->addItem("E192", static_cast<int>(SpannungsteilerLogik::E192));
 
   //
   //***************************************************************************
@@ -69,6 +69,12 @@ SpannungsteilerWidget::SpannungsteilerWidget(QWidget* parent)
 
   connect(&spannungsteiler, &SpannungsteilerLogik::setNull, ui->Widerstand2Box,
           qOverload<double>(&QDoubleSpinBox::setValue));
+}
+
+void SpannungsteilerWidget::onEReiheChanged()
+{
+  spannungsteiler.setSerie(static_cast<SpannungsteilerLogik::serieList>(
+      ui->EReihe_Box->currentData().value<int>()));
 }
 
 SpannungsteilerWidget::~SpannungsteilerWidget()
