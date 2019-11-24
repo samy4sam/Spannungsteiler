@@ -25,5 +25,6 @@ class SpannungsteilerWidget : public QWidget
 
  private slots:
   void onEReiheChanged();
+  void drawValues(void) const;
 };
 #endif  // SPANNUNGSTEILERWIDGET_H

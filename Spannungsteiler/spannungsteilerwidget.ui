@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>493</width>
-    <height>646</height>
+    <width>566</width>
+    <height>662</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -53,6 +53,9 @@
     <layout class="QHBoxLayout" name="SpaltenLayout">
      <item>
       <layout class="QGridLayout" name="GridLayout">
+       <property name="leftMargin">
+        <number>5</number>
+       </property>
        <item row="4" column="0">
         <layout class="QVBoxLayout" name="StromEReiheLayout">
          <item>
@@ -202,13 +205,10 @@
        </item>
        <item row="4" column="2">
         <layout class="QVBoxLayout" name="BildLayout">
-         <item alignment="Qt::AlignHCenter">
+         <item>
           <widget class="QLabel" name="Picture">
            <property name="text">
             <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap resource="Pictures.qrc">:/Spannungsteiler</pixmap>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -272,8 +272,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="Pictures.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
