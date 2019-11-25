@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>Spannungsteiler</file>
+        <file>remmina.png</file>
+        <file>reboot-notifier.png</file>
     </qresource>
 </RCC>

@@ -100,6 +100,10 @@
            <property name="text">
             <string>Berechnen</string>
            </property>
+           <property name="icon">
+            <iconset resource="Pictures.qrc">
+             <normaloff>:/remmina.png</normaloff>:/remmina.png</iconset>
+           </property>
           </widget>
          </item>
         </layout>
@@ -110,6 +114,10 @@
           <widget class="QPushButton" name="ResetButton">
            <property name="text">
             <string>Reset</string>
+           </property>
+           <property name="icon">
+            <iconset resource="Pictures.qrc">
+             <normaloff>:/reboot-notifier.png</normaloff>:/reboot-notifier.png</iconset>
            </property>
           </widget>
          </item>
@@ -272,6 +280,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="Pictures.qrc"/>
+ </resources>
  <connections/>
 </ui>
