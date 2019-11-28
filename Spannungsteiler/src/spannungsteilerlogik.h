@@ -27,6 +27,8 @@ class SpannungsteilerLogik : public QObject
   double getRes2() const;
   void reset();
   void doCalc();
+  double selectResistor(double r) const;
+  double calcSerieValue(int i) const;
 
  signals:
   void changedRes1(double resValue1);
@@ -40,8 +42,6 @@ class SpannungsteilerLogik : public QObject
   double current;
   double res1;
   double res2;
-  double selectResistor(double r) const;
-  double calcSerieValue(int i) const;
 };
 
 #endif  // SPANNUNGSTEILERLOGIK_H
