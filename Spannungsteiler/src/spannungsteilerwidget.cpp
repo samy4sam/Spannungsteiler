@@ -1,17 +1,25 @@
+/**
+ * @file spannungsteilerwidget.cpp
+ * @author Ivan Inderbitzin
+ * @brief 
+ * @version 1.0
+ * @date 2019-11-28
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #include "spannungsteilerwidget.h"
 #include <QPainter>
 #include "ui_spannungsteilerwidget.h"
 
+
+//=========PUBLIC=====================================================================
 SpannungsteilerWidget::SpannungsteilerWidget(QWidget* parent)
     : QWidget(parent), ui(new Ui::SpannungsteilerWidget)
 {
   ui->setupUi(this);
 
-  // **** Interaktives Verhalten initialisieren ***
-
-  //
-  // **************************************************************************
-  // SetValues
+ 
 
   drawValues();
 
@@ -47,16 +55,11 @@ SpannungsteilerWidget::SpannungsteilerWidget(QWidget* parent)
   ui->EReihe_Box->addItem("E96", static_cast<int>(SpannungsteilerLogik::E96));
   ui->EReihe_Box->addItem("E192", static_cast<int>(SpannungsteilerLogik::E192));
 
-  //
-  //***************************************************************************
-  // Calculation
-
+  
   connect(ui->CalcButton, &QPushButton::clicked, &spannungsteiler,
           &SpannungsteilerLogik::doCalc);
 
-  //
-  //***************************************************************************
-  // Show Resistors Values
+ 
 
   connect(&spannungsteiler, &SpannungsteilerLogik::changedRes1,
           ui->Widerstand1Box, qOverload<double>(&QDoubleSpinBox::setValue));
@@ -64,9 +67,7 @@ SpannungsteilerWidget::SpannungsteilerWidget(QWidget* parent)
   connect(&spannungsteiler, &SpannungsteilerLogik::changeRes2,
           ui->Widerstand2Box, qOverload<double>(&QDoubleSpinBox::setValue));
 
-  //
-  //***************************************************************************
-  // Reset
+
 
   connect(ui->ResetButton, &QPushButton::clicked, &spannungsteiler,
           &SpannungsteilerLogik::reset);
@@ -86,9 +87,6 @@ SpannungsteilerWidget::SpannungsteilerWidget(QWidget* parent)
   connect(&spannungsteiler, &SpannungsteilerLogik::setNull, ui->Widerstand2Box,
           qOverload<double>(&QDoubleSpinBox::setValue));
 }
-//
-//*****************************************************************************
-// Private Slots
 
 void SpannungsteilerWidget::onEReiheChanged()
 {
@@ -117,10 +115,6 @@ void SpannungsteilerWidget::drawValues(void) const
 
   painter->end();
 }
-
-//
-//*****************************************************************************
-// Destructor
 
 SpannungsteilerWidget::~SpannungsteilerWidget()
 {
