@@ -1,18 +1,40 @@
+/**
+ * @file SpannungsteilerLogikTest.cpp
+ * @author Philip Zellweger (philip.zellweger@hsr.ch)
+ * @brief Unittests for class SpannungsteilerLogik
+ * @version 1.0
+ * @date 2019-11-28
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #include "gtest/gtest.h"
 #include "spannungsteilerlogik.h"
 
+/**
+ * @brief Construct a new TEST object for getRes1 function
+ * 
+ */
 TEST(SpannungsteilerLogikTest, getRes1)
 {
     SpannungsteilerLogik stl;
     ASSERT_EQ(stl.getRes1(), 0.0);
 }
 
+/**
+ * @brief Construct a new TEST object for getRes2 function
+ * 
+ */
 TEST(SpannungsteilerLogikTest, getRes2)
 {
     SpannungsteilerLogik stl;
     ASSERT_EQ(stl.getRes2(), 0.0);
 }
 
+/**
+ * @brief Construct a new TEST object for calcSerieValue function
+ * 
+ */
 TEST(SpannungsteilerLogikTest, calcSerieValue)
 {
     SpannungsteilerLogik stl;
@@ -22,6 +44,10 @@ TEST(SpannungsteilerLogikTest, calcSerieValue)
     ASSERT_EQ(stl.calcSerieValue(2), 4.7);
 }
 
+/**
+ * @brief Construct a new TEST object for selectResistor function
+ * 
+ */
 TEST(SpannungsteilerLogikTest, selectResistor)
 {
     SpannungsteilerLogik stl;
