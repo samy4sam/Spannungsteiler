@@ -1,17 +1,16 @@
 /**
  * @file spannungsteilerwidget.cpp
  * @author Ivan Inderbitzin
- * @brief 
+ * @brief
  * @version 1.0
  * @date 2019-11-28
- * 
+ *
  * @copyright Copyright (c) 2019
- * 
+ *
  */
 #include "spannungsteilerwidget.h"
 #include <QPainter>
 #include "ui_spannungsteilerwidget.h"
-
 
 //=========PUBLIC=====================================================================
 SpannungsteilerWidget::SpannungsteilerWidget(QWidget* parent)
@@ -19,7 +18,10 @@ SpannungsteilerWidget::SpannungsteilerWidget(QWidget* parent)
 {
   ui->setupUi(this);
 
- 
+  ui->U1Box->setMaximum(1000);
+  ui->U2Box->setMaximum(1000);
+  ui->Widerstand1Box->setMaximum(10000);
+  ui->Widerstand2Box->setMaximum(10000);
 
   drawValues();
 
@@ -55,19 +57,14 @@ SpannungsteilerWidget::SpannungsteilerWidget(QWidget* parent)
   ui->EReihe_Box->addItem("E96", static_cast<int>(SpannungsteilerLogik::E96));
   ui->EReihe_Box->addItem("E192", static_cast<int>(SpannungsteilerLogik::E192));
 
-  
   connect(ui->CalcButton, &QPushButton::clicked, &spannungsteiler,
           &SpannungsteilerLogik::doCalc);
-
- 
 
   connect(&spannungsteiler, &SpannungsteilerLogik::changedRes1,
           ui->Widerstand1Box, qOverload<double>(&QDoubleSpinBox::setValue));
 
   connect(&spannungsteiler, &SpannungsteilerLogik::changeRes2,
           ui->Widerstand2Box, qOverload<double>(&QDoubleSpinBox::setValue));
-
-
 
   connect(ui->ResetButton, &QPushButton::clicked, &spannungsteiler,
           &SpannungsteilerLogik::reset);
@@ -108,8 +105,26 @@ void SpannungsteilerWidget::drawValues(void) const
   painter->drawText(10, 192, QString::number(vol1) + " V");
   painter->drawText(130, 273, QString::number(vol2) + " V");
   painter->rotate(-90);
-  painter->drawText(-125, 85, QString::number(r1) + " Ω");
-  painter->drawText(-267, 85, QString::number(r2) + " Ω");
+  if (r1 >= 1000)
+  {
+    painter->drawText(-140, 85, QString::number(r1) + " kΩ");
+    ui->Widerstand1->setText("Widerstand 1 [kΩ]");
+  }
+  else
+  {
+    painter->drawText(-125, 85, QString::number(r1) + " Ω");
+    ui->Widerstand1->setText("Widerstand 1 [Ω]");
+  }
+  if (r2 >= 1000)
+  {
+    painter->drawText(-282, 85, QString::number(r2) + " kΩ");
+    ui->Widerstand2->setText("Widerstand 2 [kΩ]");
+  }
+  else
+  {
+    painter->drawText(-267, 85, QString::number(r2) + " Ω");
+    ui->Widerstand2->setText("Widerstand 2 [Ω]");
+  }
 
   ui->Picture->setPixmap(spTeiler);
 
