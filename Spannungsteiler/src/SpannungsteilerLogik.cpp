@@ -1,19 +1,8 @@
-/**
- * @file spannungsteilerlogik.cpp
- * @author Philip Zellweger (philip.zellwegerhsr.ch)
- * @brief Implementation of class SpannungsteilerLogik
- * @version 1.0
- * @date 2019-11-28
- * 
- * @copyright Copyright (c) 2019
- * 
- */
 #include "SpannungsteilerLogik.h"
 #include <QtDebug>
 #include <cassert>
 #include <cmath>
 
-//=========PUBLIC=====================================================================
 SpannungsteilerLogik::SpannungsteilerLogik(QObject* parent)
     : QObject(parent), vol1(0.0), vol2(0.0), current(0.0), res1(0.0), res2(0.0)
 {

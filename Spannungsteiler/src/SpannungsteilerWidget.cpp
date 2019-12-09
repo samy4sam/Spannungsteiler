@@ -1,18 +1,7 @@
-/**
- * @file spannungsteilerwidget.cpp
- * @author Ivan Inderbitzin
- * @brief
- * @version 1.0
- * @date 2019-11-28
- *
- * @copyright Copyright (c) 2019
- *
- */
 #include "SpannungsteilerWidget.h"
 #include <QPainter>
 #include "ui_SpannungsteilerWidget.h"
 
-//=========PUBLIC=====================================================================
 SpannungsteilerWidget::SpannungsteilerWidget(QWidget* parent)
     : QWidget(parent), ui(new Ui::SpannungsteilerWidget)
 {
