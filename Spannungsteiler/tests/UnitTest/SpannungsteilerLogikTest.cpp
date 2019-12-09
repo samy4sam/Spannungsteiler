@@ -1,59 +1,46 @@
-/**
- * @file SpannungsteilerLogikTest.cpp
- * @author Philip Zellweger (philip.zellweger@hsr.ch)
- * @brief Unittests for class SpannungsteilerLogik
- * @version 1.0
- * @date 2019-11-28
- * 
- * @copyright Copyright (c) 2019
- * 
- */
-#include "gtest/gtest.h"
-#include "spannungsteilerlogik.h"
+#include <gtest/gtest.h>
+#include "../../src/SpannungsteilerLogik.h"
 
-/**
- * @brief Construct a new TEST object for getRes1 function
- * 
- */
+TEST(SpannungsteilerLogikTest, ctor_test)
+{
+  SpannungsteilerLogik* sptlr = new SpannungsteilerLogik();
+  delete sptlr;
+}
+
 TEST(SpannungsteilerLogikTest, getRes1)
 {
-    SpannungsteilerLogik stl;
-    ASSERT_EQ(stl.getRes1(), 0.0);
+  SpannungsteilerLogik sptlr;
+  EXPECT_EQ(sptlr.getRes1(), 0.0);
 }
 
-/**
- * @brief Construct a new TEST object for getRes2 function
- * 
- */
 TEST(SpannungsteilerLogikTest, getRes2)
 {
-    SpannungsteilerLogik stl;
-    ASSERT_EQ(stl.getRes2(), 0.0);
+  SpannungsteilerLogik sptlr;
+  EXPECT_EQ(sptlr.getRes2(), 0.0);
 }
 
-/**
- * @brief Construct a new TEST object for calcSerieValue function
- * 
- */
-TEST(SpannungsteilerLogikTest, calcSerieValue)
+TEST(SpannungsteilerLogikTest, doCalc_iec)
 {
-    SpannungsteilerLogik stl;
-    stl.setSerie(serieList::E3);
-    ASSERT_EQ(stl.calcSerieValue(0), 1.0);
-    ASSERT_EQ(stl.calcSerieValue(1), 2.2);
-    ASSERT_EQ(stl.calcSerieValue(2), 4.7);
+  SpannungsteilerLogik sptlr;
+  sptlr.setVol1(10);
+  sptlr.setVol2(20);
+  sptlr.setCur(1);
+  sptlr.setSerie(SpannungsteilerLogik::serieList::E3);
+
+  EXPECT_DEATH(
+      sptlr.doCalc(),
+      ".*SpannungsteilerLogik::doCalc.*Assertion `vol1 > vol2' failed.*");
 }
 
-/**
- * @brief Construct a new TEST object for selectResistor function
- * 
- */
-TEST(SpannungsteilerLogikTest, selectResistor)
+TEST(SpannungsteilerLogikTest, doCalc_vec)
 {
-    SpannungsteilerLogik stl;
-    stl.setSerie(serieList::E3);
-    ASSERT_EQ(stl.selectResistor(15.99), 10.0);
-    ASSERT_EQ(stl.selectResistor(16.0), 22.0);
-    ASSERT_EQ(stl.selectResistor(34.49), 22.0);
-    ASSERT_EQ(stl.selectResistor(34.5), 47.0);
+  SpannungsteilerLogik sptlr;
+  sptlr.setVol1(12.00);
+  sptlr.setVol2(4.00);
+  sptlr.setCur(2.00);
+  sptlr.setSerie(SpannungsteilerLogik::serieList::E3);
+  sptlr.doCalc();
+
+  EXPECT_EQ(sptlr.getRes1(), 4.70);
+  EXPECT_EQ(sptlr.getRes2(), 2.20);
 }

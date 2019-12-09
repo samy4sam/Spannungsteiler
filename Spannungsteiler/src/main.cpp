@@ -1,4 +1,4 @@
-#include "spannungsteilerwidget.h"
+#include "SpannungsteilerWidget.h"
 
 #include <QApplication>
 

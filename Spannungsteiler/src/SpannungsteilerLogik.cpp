@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2019
  * 
  */
-#include "spannungsteilerlogik.h"
+#include "SpannungsteilerLogik.h"
 #include <QtDebug>
 #include <cassert>
 #include <cmath>

@@ -1,8 +1,10 @@
-QT       += core gui
+QT += core
+QT -= gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+TARGET = SptlrTest
 
-CONFIG += c++14
+CONFIG += c++14 console
+CONFIG -= app_bundle
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -16,21 +18,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    SpannungsteilerLogik.cpp \
-    SpannungsteilerWidget.cpp \
-    main.cpp
-
-HEADERS += \
-    SpannungsteilerLogik.h \
-    SpannungsteilerWidget.h
-
-FORMS += \
-  SpannungsteilerWidget.ui
+        ../../src/SpannungsteilerLogik.cpp \
+        SpannungsteilerLogikTest.cpp \
+        main.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-RESOURCES += \
-  Pictures.qrc
+HEADERS += \
+  ../../src/SpannungsteilerLogik.h
+
+LIBS += -lgtest
+
+#GCOV Settings
+QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
+QMAKE_LDFLAGS += -fprofile-arcs -ftest-coverage
+LIBS += -lgcov

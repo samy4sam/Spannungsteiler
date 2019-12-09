@@ -8,9 +8,9 @@
  * @copyright Copyright (c) 2019
  *
  */
-#include "spannungsteilerwidget.h"
+#include "SpannungsteilerWidget.h"
 #include <QPainter>
-#include "ui_spannungsteilerwidget.h"
+#include "ui_SpannungsteilerWidget.h"
 
 //=========PUBLIC=====================================================================
 SpannungsteilerWidget::SpannungsteilerWidget(QWidget* parent)
@@ -103,7 +103,7 @@ void SpannungsteilerWidget::drawValues(void) const
   double r2 = ui->Widerstand2Box->value();
 
   painter->drawText(10, 192, QString::number(vol1) + " V");
-  painter->drawText(130, 273, QString::number(vol2) + " V");
+  painter->drawText(125, 273, QString::number(vol2) + " V");
   painter->rotate(-90);
   if (r1 >= 1000)
   {

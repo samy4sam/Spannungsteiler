@@ -12,7 +12,7 @@
 #ifndef SPANNUNGSTEILERWIDGET_H
 #define SPANNUNGSTEILERWIDGET_H
 
-#include <spannungsteilerlogik.h>
+#include <SpannungsteilerLogik.h>
 #include <QWidget>
 
 
