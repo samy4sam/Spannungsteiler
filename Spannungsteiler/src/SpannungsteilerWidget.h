@@ -1,12 +1,5 @@
 /*!
- * @file SpannungsteilerWidget.h
- * @author Ivan Inderbitzin
- * @brief
- * @version 1.0
- * @date 2019-11-28
- *
- * @copyright Copyright (c) 2019
- *
+ * \file SpannungsteilerWidget.h
  */
 
 #ifndef SPANNUNGSTEILERWIDGET_H
@@ -22,25 +15,31 @@ class SpannungsteilerWidget;
 }
 QT_END_NAMESPACE
 
+//!  SpannungsteilerWidget class generates an user interface.
 /*!
- * @brief class SpannungsteilerWidget new Spannungsteiler widget
- *
- */
+  This class implements an user interface to interact with the user.
+  There are three fields, each of them take a double value to set the input
+  voltage U1, input voltage U2 and input current I. The user interface also
+  allows to set the E-Reihe value in a drop down list.
+  The "Berechnen" button starts the calculation, the resuls are shown in the
+  picture and fields on the right side. The reset button sets all values to 0.0.
+*/
 class SpannungsteilerWidget : public QWidget
 {
   Q_OBJECT
 
  public:
+  //! SpannungsteilerWidget constructor.
   /*!
-   * @brief Construct a new Spannungsteiler Widget object
-   *
-   * @param parent - QWidget*
-   */
+    This ctor takes a default parameter "parent" to initialize the parent
+    QWidget. The main task of this ctor is to enable functionality between the
+    shown values and slots funtions in the SpannungsteilerLogik class. In this
+    case the parent QWidget is set to nullptr.
+    \param parent is a QWidget pointer set to nullptr.
+  */
   SpannungsteilerWidget(QWidget* parent = nullptr);
-  /*!
-   * @brief Destroy the Spannungsteiler Widget object
-   *
-   */
+
+  //! SpannungsteilerLogik destructor.
   ~SpannungsteilerWidget();
 
  private:

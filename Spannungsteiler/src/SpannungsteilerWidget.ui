@@ -102,7 +102,7 @@
            </property>
            <property name="icon">
             <iconset resource="Pictures.qrc">
-             <normaloff>:/remmina.png</normaloff>:/remmina.png</iconset>
+             <normaloff>:/images/remmina.png</normaloff>:/images/remmina.png</iconset>
            </property>
           </widget>
          </item>
@@ -117,7 +117,7 @@
            </property>
            <property name="icon">
             <iconset resource="Pictures.qrc">
-             <normaloff>:/reboot-notifier.png</normaloff>:/reboot-notifier.png</iconset>
+             <normaloff>:/images/reboot-notifier.png</normaloff>:/images/reboot-notifier.png</iconset>
            </property>
           </widget>
          </item>

@@ -82,7 +82,7 @@ void SpannungsteilerWidget::onEReiheChanged()
 
 void SpannungsteilerWidget::drawValues(void) const
 {
-  QPixmap spTeiler(":/Spannungsteiler");
+  QPixmap spTeiler(":/images/Spannungsteiler.png");
   QPainter* painter = new QPainter(&spTeiler);
   painter->setFont(QFont("Arial", 11));
 

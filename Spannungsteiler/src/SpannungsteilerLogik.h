@@ -1,11 +1,5 @@
 /*!
- * @file SpannungsteilerLogik.h
- * @author Philip Zellweger (philip.zellwegerhsr.ch)
- * @brief Implementation of class SpannungsteilerLogik
- * @version 1.0
- * @date 2019-11-28
- * @copyright Copyright (c) 2019
- *
+ * \file SpannungsteilerLogik.h
  */
 
 #ifndef SPANNUNGSTEILERLOGIK_H
@@ -13,10 +7,10 @@
 
 #include <QObject>
 
-//!  SpannungsteilerLogik class.
+//!  SpannungsteilerLogik class, calculactes the resitor R1 & R2.
 /*!
-  This class calculates resistor R1 and R2 depending on the voltage 1, voltage 2
-  and the current .
+  This class calculates resistor R1 and R2 depending on the input voltage U1,
+  input voltage U2 and the input current I.
 */
 
 class SpannungsteilerLogik : public QObject
@@ -25,8 +19,8 @@ class SpannungsteilerLogik : public QObject
 
  public:
   //! serieList is an enumtype
-  /*! serieList allows to choose the E-Reihe and is needed to evaluate the
-   * Resistors R1 & R2 */
+  /*! serieList allows to choose the E-Reihe value and is needed to evaluate the
+   * resistors R1 & R2 */
   enum serieList
   {
     E3 = 3,    /*!< Enum E3 value 3. */
@@ -40,52 +34,53 @@ class SpannungsteilerLogik : public QObject
 
   //! SpannungsteilerLogik constructor.
   /*!
-    This ctor takes a default parameter parent to initialize the parent QObject.
-    It also initialize all member variables with the value 0.0 except eSerie.
-    In this case the parent QObject ist set to nullptr.
+    This ctor takes a default parameter "parent" to initialize the parent
+    QObject. It also initialize all member variables with the value 0.0 except
+    eSerie. In this case the parent QObject ist set to nullptr.
     \param parent is a QObject pointer set to nullptr.
   */
   SpannungsteilerLogik(QObject* parent = nullptr);
 
   //! A setter member function.
   /*!
-    This member function allows to overwrite the member variable vol1 .
+    This void member function allows to overwrite the input voltage U1 and takes
+    one double parameter.
     \param vol the first argument.
   */
   void setVol1(double vol);
 
   //! A setter member function.
   /*!
-    This member function allows to overwrite the member variable vol2 .
-      \param vol the first argument.
+    This void member function allows to overwrite the input voltage U2 and takes
+    one double parameter. \param vol the first argument.
   */
   void setVol2(double vol);
 
   //! A setter member function.
   /*!
-    This member function allows to overwrite the member variable cur .
-    \param cur the first argument.
+    This void member function allows to overwrite the input current I and takes
+    one double parameter. \param cur the first argument.
   */
   void setCur(double cur);
 
   //! A setter member function.
   /*!
-    This member function allows to choose the E-Reihe .
-    \param serie the first argument.
+    This void member function allows to choose the E-Reihe value and takes an
+    enum parameter. \param serie the first argument.
   */
   void setSerie(serieList serie);
 
   //! A getter member function.
   /*!
     This member function returns the resistor R1 .
-    \return the resistor 1 value
+    \return Returns the resistor R1 value as a double type
   */
   double getRes1() const;
 
   //! A getter member function.
   /*!
     This member function returns the resistor R2 .
-    \return the resistor 2 value
+    \return Returns the resistor R2 value as a double type
   */
   double getRes2() const;
 
@@ -98,8 +93,8 @@ class SpannungsteilerLogik : public QObject
 
   //! A calculation member function.
   /*!
-    This member function calculates the resistor R1 and R2 depending on voltage
-    1 voltage 2 and the current .
+    This member function calculates the resistor R1 and R2 depending on input
+    voltage U1, input voltage U2 and the input current I.
   */
   void doCalc();
 
@@ -107,14 +102,14 @@ class SpannungsteilerLogik : public QObject
 
   //! A signal function.
   /*!
-   This signal function tells the widget ui to update the resistor R1 value
-    \param resValue1 the first argument.
+   This signal function tells the widget ui to update the shown resistor R1
+   value \param resValue1 the first argument.
   */
   void changedRes1(double resValue1);
 
   //! A signal function.
   /*!
-  This signal function tells the widget ui to update the resistor R2 value
+  This signal function tells the widget ui to update the shown resistor R2 value
     \param resValue2 the first argument.
   */
   void changeRes2(double resValue2);
